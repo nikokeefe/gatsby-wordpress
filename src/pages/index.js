@@ -1,5 +1,36 @@
-import React from "react"
+import React from 'react';
+import { graphql } from 'gatsby';
 
-export default function Home() {
-  return <div>Hello world!</div>
-}
+import PrimaryLayout from '../layouts/PrimaryLayout';
+import Post from '../components/Post';
+
+export default ({ data }) => {
+	return (
+		<PrimaryLayout column='col-xs-6'>
+			{data.allWordpressPost.nodes.map(post => (
+				<Post
+					key={post.id}
+					title={post.title}
+					image={post.featured_media.source_url}
+					excerpt={post.excerpt}
+					readMore={post.slug}
+				/>
+			))}
+		</PrimaryLayout>
+	);
+};
+
+export const query = graphql`
+	{
+		allWordpressPost {
+			nodes {
+				slug
+				title
+				excerpt
+				featured_media {
+					source_url
+				}
+			}
+		}
+	}
+`;
