@@ -18,12 +18,14 @@ const PostLayout = ({ data }) => {
 				keywords={post.categories.map(res => res.name).join(', ')}
 			/>
 			<Header />
-			<div className='container'>
-				<div className='row justify-content-md-center'>
-					<h1 dangerouslySetInnerHTML={{ __html: post.title }} />
-					<div dangerouslySetInnerHTML={{ __html: post.content }} />
+			<main>
+				<div className='container'>
+					<div className='row justify-content-md-center'>
+						<h1 dangerouslySetInnerHTML={{ __html: post.title }} />
+						<div dangerouslySetInnerHTML={{ __html: post.content }} />
+					</div>
 				</div>
-			</div>
+			</main>
 			<Footer />
 		</div>
 	);
