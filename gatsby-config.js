@@ -35,5 +35,19 @@ module.exports = {
 		{
 			resolve: `gatsby-plugin-react-helmet`,
 		},
+		{
+			resolve: `gatsby-plugin-manifest`,
+			options: {
+				name: `Gatsby Bootstrap Wordpress Project`,
+				short_name: `GBWP`,
+				start_url: `/`,
+				background_color: `#f7f0eb`,
+				theme_color: `##E0A800`,
+				display: `standalone`,
+			},
+		},
+		{
+			resolve: `gatsby-plugin-offline`,
+		},
 	],
 };
